@@ -9,8 +9,13 @@ group :assets do
   gem "less-rails"
 end
 
+gem 'capistrano'
+
+gem 'unicorn'
+
+
 gem "bson_ext"
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', "2.2.6"
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
 gem "mongoid", ">= 3.0.18"
