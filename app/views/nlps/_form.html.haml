@@ -1,0 +1,31 @@
+= nested_form_for @nlp, :html => { :class => "form-horizontal" } do |f|
+  = hidden_field_tag "referring_controller_action", controller.action_name
+  = hidden_field_tag "referring_language", params[:language]
+    
+  - @nlp.interests.each_with_index do |interest, index|
+    = f.fields_for :interests, interest do |builder|
+      - if controller.action_name != "edit" 
+        = render "interest_fields", :form => builder, :index => index if   builder.object == @random_interest 
+      - else
+        = render "interest_fields", :form => builder, :index => index
+        
+
+  - if @nlp.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@nlp.errors.count, "error")} prohibited this nlp from being saved:"
+      %ul
+        - @nlp.errors.full_messages.each do |msg|
+          %li= msg
+  
+  .general-comment-field.form-horizontal
+    %ul
+      %li
+        = f.label "" do
+          = "Comments #{ link_to( "?", "#",  :class => "annon_tooltip", :rel => "tooltip", :data => {:toggle => "tooltip", :'original-title' => "Let us know about anything unusual or that you're unsure of about this credit"  }  )}".html_safe
+        = f.text_area  :comment, { :rows => "3" }
+      %li
+        .clearfix
+        .actions
+          = f.submit 'Submit', :class => "btn btn-primary btn-large"
+          %a{:href => "/", :class => "btn btn-danger btn-large" } Quit
+          %a{:href => "/nlps/random/#{params[:language]}", :class => "btn btn-info btn-large" } Skip

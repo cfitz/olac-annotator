@@ -1,0 +1,55 @@
+- unless ( !form.object.new_record? && controller.action_name != "edit"  )
+  
+  - if ( controller.action_name != "edit"  )
+    = fields_for :nlp, @nlp do |fields|
+      .language-comments.control-group
+        %ul.language-fields
+          %li
+            = fields.label "Language of role or function"
+            = fields.select :role_language, Insight.language_values, {},  { :class =>"language-pulldown required" }
+            %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/> If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
+          -# %li REMOVING THESE COMMENTS FOR NOW
+            -# fields.label "Other Language or Comment"
+            -# fields.text_field :language_comment, :cols => 1000, :rows => 5
+  - else
+    .language-comments.control-group
+      %ul.language-fields-edit
+        %li
+          = form.label "Language of role or function"
+          = form.select :role_language, Insight.language_values, {},  { :class =>"language-pulldown required" }
+          %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/> If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
+        -# %li REMOVEING THESE COMMENTS
+          -# form.label "Other Language or Comment"
+          -# form.text_field :language_comment, :cols => 1000, :rows => 5
+  %ul.nlps_fields
+    - if ( controller.action_name == "edit"   )
+      %li.approved
+        = form.label 'Approved?'
+        = form.check_box  :approved?, :class => "approved"
+    %li
+      = form.label 'Name in credit'
+      = form.text_field  :raw_name, :class => "name-in-credit nameValueInCredit"
+      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip", :data => { :html => "true", :toggle => "tooltip", :original => {:title => "Copy one name from the credit above." }} } ?
+    %li
+      = form.label "Match for name in credit"
+      = form.select :canonical_name, @nlp.canonical_names
+      %a{ :href => "#", :class => "annon_tooltip", :rel => "tooltip", :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Match the name in the credit to a name in the pulldown list.<br/> If there is no matching name, choose 'No matching name in list.'<br/> If you are not sure of the match, make a note in the comments box." }} } ?
+    %li
+      = form.label 'Role or function in credit'
+      = form.text_field :raw_role, :class => "role-in-credit roleValueInCredit"
+      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Copy one role or function from the credit above.<br/> If there is no role or function in the credit, leave this box blank. Examples of such credits would be 'PBS Home Video' or 'Tom Smith.' <br/> If there is more than one role or function in the credit, use the 'Add a new line for another name or role' link to make a new line, repeat the name and put each role or function in its own box. For example, 'produced and directed by Jane Jones and Sam Smith' should result in four lines: <br/>(1) 'Jane Jones' and 'produced by'; <br/>(2) 'Jane Jones' and 'directed by'; <br/>(3) 'Sam Smith' and 'produced by'; <br/>(4) 'Sam Smith' and 'directed by.' <br/> Check the examples button in the top right for more help with complicated cases." }}  } ?
+    
+    %li
+      = form.label 'English translation of role/function'
+      = form.text_field :role, :class => ""
+      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true",:toggle => "tooltip", :original => {:title =>   "Provide a literal English translation of the role or function in the credit if it’s not in English. <br/> For example, for “guioìn, Federico Garciìa Serrano,” record “script.” <br/> For “dirigida por Luis Estrada,” record “directed by.”"  }} } ?
+  - if ( controller.action_name == "edit"   )
+    .comments
+      = form.label 'Comments'
+      = form.text_field  :comment
+:javascript
+  window.onload=function() {
+    $('.annon_tooltip').tooltip();
+  };
+  
+

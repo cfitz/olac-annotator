@@ -1,0 +1,16 @@
+.page-header
+  %a.btn.btn-warning#helpButton{ :href => "#helpModal", :role => 'button', :data => {:toggle => 'modal' }} Instructions
+  %a.btn#contactButton{ :href => "#contactModal", :role => "button", :data => {:toggle => 'modal'}} Contact Us
+  %h1=t '.title', :default => @nlp.title
+
+  -#
+    %a.btn{ :href => "#marcModal", :role => "button", :data => {:toggle => 'modal'}} Show Marc Record
+
+= render 'form', :readonly => true
+- if  controller.action_name == "edit" 
+  = link_to 'Show', @nlp
+  \|
+  = link_to 'Back', nlps_path
+= render "marc_modal"
+= render "help_modal"
+= render "contact_modal"

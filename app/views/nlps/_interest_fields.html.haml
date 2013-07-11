@@ -1,0 +1,12 @@
+- if  controller.action_name == "edit" 
+  %h4= "#{index + 1}. " + form.object.input_field 
+- else
+  .well.interest
+    %h4#random_interest= form.object.input_field 
+
+.insights-fields  
+  = form.fields_for :insights do |builder|
+    = render "insight_fields", :form => builder
+  = form.link_to_add "Add a new line for another name or role", :insights, :class => "btn btn-link"
+  .clearfix
+
