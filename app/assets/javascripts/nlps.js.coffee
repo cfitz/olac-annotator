@@ -58,12 +58,13 @@ jQuery ->
 		return true if words.length < 1 and isEmptyOk == true
 		result = true
 		credit = " " + credit + " "
+		words = words.replace("...", "")
 		checkWords = words.split " "
 		for checkWord in checkWords
-		  searcher = new RegExp("(\\s)" + RegExp.escape(checkWord) + "(\\W)?(\\s)", "gi")
-		  reg = credit.search(searcher)
-		  result = false if credit.search(searcher) < 0
-		#return false
+		  if checkWord.length > 1
+		    searcher = new RegExp("(\\W|\\s)" + RegExp.escape(checkWord) + "(\\W|\\s)", "gi")
+		    result = false if credit.search(searcher) < 0
+		    break if result == false
 		result
 
       
@@ -95,8 +96,13 @@ jQuery ->
 
 	  showErrors: (errorMap, errorList) ->
 	    $.each @successList, (index, value) ->
-	      $(value).popover "hide"
-
+	      if $(value).hasClass("role-in-credit")
+	        # issue a popover is there are values that look like they're trying to put multiple roles in a line
+	        roleInCreditWarning(value) 
+        else
+          $(value).popover "hide"
+        
+	    
 	    $.each errorList, (index, value) ->
 	      _popover = undefined
 	      # console.log value.message
@@ -109,7 +115,21 @@ jQuery ->
 	      _popover.data("popover").options.content = value.message
 	      $(value.element).popover "show"
 
-
+  
+  # This method issues a warning to try and trap anyone trying to put multiple roles in a single line. 
+  roleInCreditWarning = (value) ->
+    searcher = new RegExp(/\band\b|\&|\+|\/|\,/gi)
+    roleText =  $(value).val()
+    if roleText.search(searcher) > 0
+      $(value).popover(
+        trigger: "manual"
+        placement: "bottom"
+        content: "Warning:  If there is more than one role or function in the credit, use the 'Add a new line for another name or role” link to make a new line, repeat the name and put each role or function in its own box. For example, 'produced and directed by Jane Jones and Sam Smith” should result in four lines: (1) 'Jane Jones” and 'produced by”; (2) 'Jane Jones” and 'directed by”; (3) 'Sam Smith” and 'produced by”; (4) 'Sam Smith” and 'directed by.”"
+        template: "<div class=\"popover fade in\"><div class=\"arrow\"></div><div class=\"popover-inner\"><div class=\"popover-destroy\">x</div><div class=\"popover-content\"><p></p></div></div></div>"
+      )
+      $(value).popover "show"
+    true
+  
 	$("form").on("click",".popover-destroy",  ( =>
 	  $(".popover").hide()
 	))

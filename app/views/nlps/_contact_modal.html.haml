@@ -2,17 +2,5 @@
   .modal-header
     %button.close{:type => "button", :data => { :dismiss => "modal"}, "aria-hidden" => "true"} x
     %h3#contactModalLabel Contact Us
-  = form_for @message, :url => contact_path do |form| 
-    = form.hidden_field :subject, { :value => "#{@nlp.id} -- #{@nlp.language}" }
-    .modal-body 
-      %fieldset.fields
-        = form.label "Your Name:"
-        = form.text_field :name 
-        = form.label "Your Email:"
-        = form.text_field :email 
-        = form.label "Message:"
-        = form.text_area :body
-    .modal-footer  
-      %fieldset.actions
-        = form.submit "Send"
-        %button.btn{ :data => {:dismiss => "modal"}, :aria => { :hidden => true}} Close
+  .modal-body
+    %p= "Please contact  #{mail_to('kelleym@uoregon.edu', "kelleym@uoregon.edu",  {:class => "page-link"}  ).html_safe } for more information.".html_safe

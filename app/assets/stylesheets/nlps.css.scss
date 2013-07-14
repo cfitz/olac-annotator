@@ -8,18 +8,23 @@ select {
 input, textarea, .uneditable-input { width: 180px; }
 .modal { width: 637px; }
 
-#helpButton, #contactButton { float: right; margin: 0 10px; }
+.header-buttons { float: right; 
+    a { margin: 0 6px; }}
+
 
 .actions { float: right; }
 
 div.language-comments {
   background: beige;
   ul {
-    width: 100%;
     margin: 0;
+    width: 100%;
+    
     li { 
+      width: 100%;
+      text-align: center;
       margin-top: 5px;
-      padding: 10px 100px;
+      padding: 10px 0px;
     }
   }
 }

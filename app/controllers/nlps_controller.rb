@@ -67,10 +67,6 @@ class NlpsController < ApplicationController
       if @nlp.update_attributes(params[:nlp])
         format.json { head :no_content }
         if params[:referring_controller_action] == "random_by_language"
-          puts "@@@@@@@@@@@@@@@@@"
-          puts params.inspect
-          puts "@@@@@@@@@@@@@@@@@"
-
           flash[:notice] =  'Record was successfully updated.'
           format.html { redirect_to controller: "nlps", action:  "random_by_language", language: params[:referring_language], id: nil }
         else
@@ -101,10 +97,7 @@ class NlpsController < ApplicationController
     @message = Message.new
     @random_interest = params[:interest_id] ? Interest.find(params[:interest_id]) : @nlp.interests[rand(@nlp.interests.length)] # get a random interest to display. 
     @random_interest.insights.build
-    
-    logger.debug @nlp.id
-    logger.debug @random_interest.id
-     
+
     respond_to do |format|
       format.html { render action: 'edit' }
       format.json { render json: @nlp }
@@ -120,7 +113,7 @@ class NlpsController < ApplicationController
     params["nlp"]["interests_attributes"].each do |interests_key, interests|
       if interests["insights_attributes"]
         interests["insights_attributes"].each do |insights_key, insights|
-          ["language", "comment", "language_comment"].each do |field|
+          ["role_language", "comment", "language_comment"].each do |field|
             if params["nlp"][field]
               insights[field] = params["nlp"][field] 
             end

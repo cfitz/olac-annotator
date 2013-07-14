@@ -1,6 +1,8 @@
 .page-header
-  %a.btn.btn-warning#helpButton{ :href => "#helpModal", :role => 'button', :data => {:toggle => 'modal' }} Instructions
-  %a.btn#contactButton{ :href => "#contactModal", :role => "button", :data => {:toggle => 'modal'}} Contact Us
+  .header-buttons
+    %a.btn.btn-warning#helpButton{ :href => "#helpModal", :role => 'button', :data => {:toggle => 'modal' }} Instructions
+    %a.btn.btn-info#contactButton{ :href => "/examples.pdf", :target => "_blank" } Examples
+    %a.btn.btn-info#contactButton{ :href => "#contactModal", :role => "button", :data => {:toggle => 'modal'}} Contact Us
   %h1=t '.title', :default => @nlp.title
 
   -#

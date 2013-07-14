@@ -13,7 +13,7 @@ OlacNlp::Application.routes.draw do
   get "/nlps/random/:language/:id" => "nlps#random_by_language"
   get "/nlps/random/:language/:id/:interest_id" => "nlps#random_by_language"
   
-  
+  match 'review' => 'review#index', :via => :get
   match 'contact' => 'contact#new', :as => 'contact', :via => :get
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
   

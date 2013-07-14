@@ -20,6 +20,7 @@ gem 'jquery-rails'
 gem "thin", ">= 1.5.0"
 gem "mongoid", ">= 3.0.18"
 gem "mongo_session_store-rails3"
+gem "will_paginate_mongoid"
 gem "haml", ">= 3.1.7"
 gem "nokogiri"
 gem 'delayed_job_mongoid'

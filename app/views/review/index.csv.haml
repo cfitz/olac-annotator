@@ -1,0 +1,5 @@
+= ["record_id", "marc_id", "title", "record language", "annotation field", "annotated name", "annotated role", "annotated language", "comment"].to_csv
+- @nlps.each do |nlp|
+  - nlp.interests.each do |interest|
+    - interest.insights.each do |insight|
+      = [ nlp.id.to_s, MARC::Record.new_from_marchash(nlp.marc_hash)['999']['a'], nlp.title, nlp.language, interest.input_field, insight.raw_name, insight.raw_role, insight.role_language, insight.comment].map { |c| c.blank? ? nil : c.delete('"\'') }.to_csv.html_safe

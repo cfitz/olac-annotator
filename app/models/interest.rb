@@ -20,35 +20,6 @@ class Interest
     self.insights.build
   end
   
- 
-
-  def new_session_insights_attributes=(args={})
-    puts args
-=begin
-    args.each_pair do |k,v|
-      destroy = v["__destroy"] == "1"
-      if k.include?("new") or v["id"].empty? # this is a newly added relationship
-        unless destroy
-          self << 
-          self.save #first we need to persist the document. 
-          creator = v["class"].constantize.find_or_create_by(:name => v["end_node_name"])
-          creator_role = Creator.new(:creators, self, creator, {:role => v["role"] })
-          creator_role.save
-        end
-      else # existing relationship, lets check it. 
-        if destroy 
-          creator = Creator.find(v["id"])
-          creator.destroy 
-        else
-          creator = Creator.find(v["id"])
-          unless creator.role == v["role"]
-            creator.role = v["role"]
-            creator.save
-          end
-        end
-      end
-=end
-    end
 
 
 end

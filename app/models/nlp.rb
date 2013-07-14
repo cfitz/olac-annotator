@@ -39,7 +39,7 @@ class Nlp
   end
   
   def canonical_names
-    results = [ [ "Not On List", "" ]]
+    results = [ [ "No matching name in list", "" ]]
     names = self.authority_names
     names.each {|n| results << ["#{n["name"]}", n["name"]]}
     results
@@ -107,7 +107,7 @@ class Nlp
   end
   
   def self.get_random_record_by_language(language)
-    nlps = Nlp.where(language: language)
+    nlps = Nlp.where(language: language, :approved_counter.lt => 3)
     cnt = ( nlps.count - 1 ) 
     offset = rand(cnt)
     nlps.skip(offset).limit(1).first
