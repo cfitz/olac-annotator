@@ -11,9 +11,9 @@ require 'rubygems/package'
 require 'zlib'
 
 puts 'DEFAULT USERS'
-User.all.delete
-user = User.create! :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
-#puts 'user: ' << user.name
+# User.all.delete
+# user = User.create! :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
+# #puts 'user: ' << user.name
 
 
 Nlp.all.delete
@@ -22,9 +22,18 @@ Interest.all.delete
 
 
 
-def index_marc(file)
+def index_xml_marc(file)
   reader = MARC::XMLReader.new(file, :parser => "nokogiri")
   language = file.full_name.gsub(".xml", "").gsub("videos_", "").downcase
+  for record in reader
+     process_record(record, language) unless record["245"].nil?
+  end
+end
+
+def index_marc(file)
+  puts file
+  reader = MARC::Reader.new(file)
+  language = File.basename(file).gsub(".mrc", "").gsub("videos_", "").downcase
   for record in reader
      process_record(record, language) unless record["245"].nil?
   end
@@ -70,6 +79,10 @@ end
 Gem::Package::TarReader.new(Zlib::GzipReader.open('doc/video_xml.gz')).each do |entry|
   if [ "videos_english.xml", "videos_spanish.xml", "videos_german.xml"].include?(entry.full_name)
     puts entry.full_name
-    index_marc(entry)
-  end
+    index_xml_marc(entry)
+  end  
+end
+
+Dir.glob("doc/marc/*.mrc").each do |entry|
+   index_marc(entry)
 end

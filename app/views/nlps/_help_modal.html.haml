@@ -3,16 +3,20 @@
     %button.close{:type => "button", :data => { :dismiss => "modal"}, "aria-hidden" => "true"} x
     %h3#helpModalLabel Help
   .modal-body
+    %h5
+      You will be presented with a credit from a film or video. The credit will include the name(s) of a person, some people or an organization or organizations. The credit may also describe the role(s) or function(s) the people or organizations played in creating the film or video, such as directing or producing.
     %ol
+      %li If there is a role or function in the credit, identify the language that the statement about the role or function is in and select it from the "Language of role or function" dropdown list. If there is no role or function, select "no role or function specified."
       %li Copy one name from the credit into the "Name in credit" box.
-      %li Find the name you copied from the credit in the list.
-      %li Copy one role from the credit into the "Role in credit" box.
-      %li Translate the role if it's not in English.
-      %li Use “add a new line” to make a row for each combination of name and role.
+      %li Look for the name you copied from the credit in the "Match for name in credit" dropdown list and select it if it's present.
+      %li If there is a role or function in the credit, copy one role or function into the "Role or function in credit" box.
+      %li Give a literal English translation of the role or function from the credit in the next box if it's not already in English.
+      %li Use “add a new line” to make a row for each combination of name and role or function.
+      %li Use the comments box to let us know about anything you're unsure about.
     %h5
       Two basic examples are below. Use these
       =  link_to "additional examples", "/examples.pdf", { :class => "page-link", :target => "_blank"}
-      as guidelines if you have a more complex credit statement, such as "produced by United Broadcasting Inc. for Channel 4."
+      as guidelines if you have a more complex credit statement, such as "produced by United Broadcasting Inc. for Channel 4."  Return to these instructions at any time by clicking on the orange instructions button in the upper right corner of the screen.
     
     %table.table.table-bordered
       %tbody
@@ -20,7 +24,7 @@
           %td Credit: 
           %td{ :colspan => 3 } Directed by Clint Eastwood 
         %tr
-          %td Language of role:
+          %td Language of role or function:
           %td{ :colspan => 3 } English
         %tr
           %td Name In Credit: 
@@ -38,7 +42,7 @@
           %td Credit: 
           %td{ :colspan => 3 } written and directed by Samuel Fuller
         %tr
-          %td Language of role:
+          %td Language of role or function:
           %td{ :colspan => 3 } English
         %tr
           %td Name In Credit: 
@@ -55,6 +59,7 @@
           %td Fuller, Samuel 
           %td directed by 
           %td
+    %img{ :src => "/screen_shot.jpg" }
     
   .modal-footer
     %button.btn{ :data => {:dismiss => "modal"}, :aria => { :hidden => true}} Close
