@@ -9,7 +9,7 @@ RegExp.escape = (string) =>
 jQuery ->
 
 
-	if document.referrer == "http://localhost:3000/" or document.referrer == "http://olac-annotator.herokuapp.com/"
+	if document.referrer == "http://localhost:3000/" or document.referrer == "http://olac-annotator.org/"
 		$('#helpModal').modal('show')
 		
 
