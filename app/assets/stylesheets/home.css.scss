@@ -3,6 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.lang-row { margin-top: 5px; }
-
-.spacer { display: none; }
+#home-select li {
+  display: list-item;
+  float: none;
+  padding: 0 0;
+  margin: 0;
+}

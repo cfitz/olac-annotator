@@ -5,42 +5,68 @@
       Help us connect people's names with their roles or functions.
       Annotate credits from library data so we can train a computer to do this on a large scale.
       Pick a category and get started…
-  %p
-    .row.lang-row
-      %a{:href => 'nlps/random/english', :class => 'btn btn-primary btn-large span2'} English
-      %a{:href => 'nlps/random/other_unspecified', :class => 'btn btn-primary btn-large span2'} Unspecified language (mostly English)
-      %a{:href => 'nlps/random/music_dance	', :class => 'btn btn-primary btn-large span2'} Music & dance
-      %a{:href => 'nlps/random/chinese', :class => 'btn btn-primary btn-large span2'} Chinese
-    .row.lang-row
-      %a{:href => 'nlps/random/french', :class => 'btn btn-primary btn-large span2'} French
-      %a{:href => 'nlps/random/german', :class => 'btn btn-primary btn-large span2'} German
-      %a{:href => 'nlps/random/italian', :class => 'btn btn-primary btn-large span2'} Italian
-      %a{:href => 'nlps/random/japanese', :class => 'btn btn-primary btn-large span2'} Japanese
-    .row.lang-row
-      %a{:href => 'nlps/random/korean', :class => 'btn btn-primary btn-large span2'} Korean
-      %a{:href => 'nlps/random/polish', :class => 'btn btn-primary btn-large span2'} Polish
-      %a{:href => 'nlps/random/russian', :class => 'btn btn-primary btn-large span2'} Russian
-      %a{:href => 'nlps/random/spanish	', :class => 'btn btn-primary btn-large span2'} Spanish
-    .row.lang-row
-      %a{:href => 'nlps/random/arabic', :class => 'btn btn-primary btn-large span2'} Arabic
-      %a{:href => 'nlps/random/armenian', :class => 'btn btn-primary btn-large span2'} Armenian
-      %a{:href => 'nlps/random/estonian', :class => 'btn btn-primary btn-large span2'} Estonian and Finish
-      %a{:href => 'nlps/random/iranian', :class => 'btn btn-primary btn-large span2'} Farsi, Kurdish, Pashto, Tajik
-    .row.lang-row
-      %a{:href => 'nlps/random/georgian', :class => 'btn btn-primary btn-large span2'} Georgian
-      %a{:href => 'nlps/random/germanic', :class => 'btn btn-primary btn-large span2'} Germanic (Danish, Dutch, Icelandic, Norwegian, Swedish )
-      %a{:href => 'nlps/random/hebrew', :class => 'btn btn-primary btn-large span2'} Hebrew
-      %a{:href => 'nlps/random/hungarian', :class => 'btn btn-primary btn-large span2'} Hungarian
-    .row.lang-row
-      %a{:href => 'nlps/random/indo-aryan', :class => 'btn btn-primary btn-large span2'} Indo-Aryan (Urdu, Hindi, Sindhi, etc.)
-      %a{:href => 'nlps/random/baltic', :class => 'btn btn-primary btn-large span2'} Latvian and Lithuanian
-      %a{:href => 'nlps/random/indonesian', :class => 'btn btn-primary btn-large span2'} Malayo-Polynesian (Indonesian, Malay, Tagalog, etc.)
-      %a{:href => 'nlps/random/portuguese', :class => 'btn btn-primary btn-large span2'} Portuguese
-    .row.lang-row
-      %a{:href => 'nlps/random/romanian', :class => 'btn btn-primary btn-large span2'} Romanian
-      %a{:href => 'nlps/random/slavic', :class => 'btn btn-primary btn-large span2'} Slavic (other than Russian and Polish)
-      %a{:href => 'nlps/random/thai', :class => 'btn btn-primary btn-large span2'} Thai and Lao
-      %a{:href => 'nlps/random/turkish', :class => 'btn btn-primary btn-large span2'} Turkish, Kazak, Uighur, Uzbek
-    .row.lang-row
-      %a{:href => 'nlps/random/vietnamese', :class => 'btn btn-primary btn-large span2'} Vietnamese
-      %a{:href => 'nlps/random/other-lang', :class => 'btn btn-primary btn-large span2'} Other languages
+    .btn-group.span4.offset4
+      .btn.btn-large.btn-info.dropdown-toggle{ :data => { :toggle => "dropdown" }, :href => "#" } 
+        Select A Language
+        %span.caret
+      %ul.dropdown-menu#home-select
+        %li 
+          %a{:href => 'nlps/random/english' } English
+        %li
+          %a{:href => 'nlps/random/other_unspecified' } Unspecified language (mostly English)
+        %li
+          %a{:href => 'nlps/random/music_dance'} Music & dance
+        %li
+          %a{:href => 'nlps/random/chinese' } Chinese
+        %li
+          %a{:href => 'nlps/random/french' } French
+        %li
+          %a{:href => 'nlps/random/german' } German
+        %li
+          %a{:href => 'nlps/random/italian' } Italian
+        %li
+          %a{:href => 'nlps/random/japanese' } Japanese
+        %li
+          %a{:href => 'nlps/random/korean' } Korean
+        %li
+          %a{:href => 'nlps/random/polish' } Polish
+        %li
+          %a{:href => 'nlps/random/russian' } Russian
+        %li
+          %a{:href => 'nlps/random/spanish' } Spanish
+        %li
+          %a{:href => 'nlps/random/arabic' } Arabic
+        %li
+          %a{:href => 'nlps/random/armenian' } Armenian
+        %li
+          %a{:href => 'nlps/random/estonian' } Estonian and Finish
+        %li
+          %a{:href => 'nlps/random/iranian' } Farsi, Kurdish, Pashto, Tajik
+        %li
+          %a{:href => 'nlps/random/georgian' } Georgian
+        %li
+          %a{:href => 'nlps/random/germanic' } Germanic (Danish, Dutch, Icelandic, Norwegian, Swedish )
+        %li
+          %a{:href => 'nlps/random/hebrew' } Hebrew
+        %li
+          %a{:href => 'nlps/random/hungarian' } Hungarian
+        %li
+          %a{:href => 'nlps/random/indo-aryan' } Indo-Aryan (Urdu, Hindi, Sindhi, etc.)
+        %li
+          %a{:href => 'nlps/random/baltic' } Latvian and Lithuanian
+        %li
+          %a{:href => 'nlps/random/indonesian' } Malayo-Polynesian (Indonesian, Malay, Tagalog, etc.)
+        %li
+          %a{:href => 'nlps/random/portuguese' } Portuguese
+        %li
+          %a{:href => 'nlps/random/romanian' } Romanian
+        %li
+          %a{:href => 'nlps/random/slavic' } Slavic (other than Russian and Polish)
+        %li
+          %a{:href => 'nlps/random/thai' } Thai and Lao
+        %li
+          %a{:href => 'nlps/random/turkish' } Turkish, Kazak, Uighur, Uzbek
+        %li
+          %a{:href => 'nlps/random/vietnamese' } Vietnamese
+        %li
+          %a{:href => 'nlps/random/other-lang' } Other languages
