@@ -4,8 +4,8 @@
     %p
       = link_to "The OLAC Movie & Video Credit Annotation Experiment", 'http://olac-annotator.herokuapp.com'
       is part of a larger project to make it easier to find film and video in libraries and archives. This project breaks current movie records down to pull out all the cast and crew information so that it may be re-ordered and manipulated. We also want to make explicit connections between cast and crew names and their roles or functions in the movie production. Adding these formal connections to movie records will allow us to provide a better user experience. For example, library patrons would be able to search just for directors or just for cast members or only for movies where Clint Eastwood is actually in the cast rather than all the movies that he is connected with. Libraries would have the flexibility to create more standardized and readable displays of production credits, such as you see at 
-      = link_to "IMDB", "http://www.imdb.com/title/tt1205489/", { :class => "page-link", :target => "_blank"}
-      , rather than views like a 
+      = link_to "IMDB,", "http://www.imdb.com/title/tt1205489/", { :class => "page-link", :target => "_blank"}
+      rather than views like a 
       = link_to "typical library catalog.", "http://janus.uoregon.edu/record=b3958782", { :class => "page-link", :target => "_blank"}
     %p
       We therefore want to convert our existing records into more structured sets of data. Eventually, we intend to automate most of this conversion. For now, we need help from human volunteers, who can train our software to recognize the many ways names and roles have been listed in library records for movies.
@@ -15,8 +15,8 @@
       Inspired by the
       = link_to "Functional Requirements for Bibliographic Records (FRBR) model", "http://www.ifla.org/publications/functional-requirements-for-bibliographic-records", { :class => "page-link", :target => "_blank"}
       and the potential of 
-      = link_to "faceted navigation", "http://en.wikipedia.org/wiki/Faceted_search", { :class => "page-link", :target => "_blank"}
-      , we hope to build on 
+      = link_to "faceted navigation,", "http://en.wikipedia.org/wiki/Faceted_search", { :class => "page-link", :target => "_blank"}
+      we hope to build on 
       = link_to "our prototype", "http://blazing-sunset-24.heroku.com/", { :class => "page-link", :target => "_blank"} 
       to develop a movie-centric discovery interface for films and videos in libraries. We want to make it easier to find movies in libraries and also to make more interesting searches and displays possible. In order to do this without recataloging all the films and videos already in libraries, we plan to extract relevant data from existing catalog records and, where needed, modify it so that it is understandable not only to a human looking at the data, but also to a machine.
     %p 

@@ -7,7 +7,7 @@
           %li
             = fields.label "Language of role or function"
             = fields.select :role_language, Insight.language_values, {},  { :class =>"language-pulldown required" }
-            %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/> If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
+            %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/><br/>  If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
           -# %li REMOVING THESE COMMENTS FOR NOW
             -# fields.label "Other Language or Comment"
             -# fields.text_field :language_comment, :cols => 1000, :rows => 5
@@ -17,7 +17,7 @@
         %li
           = form.label "Language of role or function"
           = form.select :role_language, Insight.language_values, {},  { :class =>"language-pulldown required" }
-          %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/> If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
+          %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>   "Identify what language is used for the role or function term(s) in the credit. Examples of roles and functions are 'producer,' 'cinematography,' 'directed by' 'presents' or 'a … film' where the credit says something like 'a Clint Eastwood film.'<br/><br/>  If there are no role or function terms in the credit, choose “no role/function specified."  }} } ?
         -# %li REMOVEING THESE COMMENTS
           -# form.label "Other Language or Comment"
           -# form.text_field :language_comment, :cols => 1000, :rows => 5
@@ -33,16 +33,16 @@
     %li
       = form.label "Match for name in credit"
       = form.select :canonical_name, @nlp.canonical_names
-      %a{ :href => "#", :class => "annon_tooltip", :rel => "tooltip", :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Match the name in the credit to a name in the pulldown list.<br/> If there is no matching name, choose 'No matching name in list.'<br/> If you are not sure of the match, make a note in the comments box." }} } ?
+      %a{ :href => "#", :class => "annon_tooltip", :rel => "tooltip", :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Match the name in the credit to a name in the pulldown list.<br/><br/>  If there is no matching name, choose 'No matching name in list.'<br/><br/>  If you are not sure of the match, make a note in the comments box." }} } ?
     %li
       = form.label 'Role or function in credit'
       = form.text_field :raw_role, :class => "role-in-credit roleValueInCredit"
-      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Copy one role or function from the credit above.<br/> If there is no role or function in the credit, leave this box blank. Examples of such credits would be 'PBS Home Video' or 'Tom Smith.' <br/> If there is more than one role or function in the credit, use the 'Add a new line for another name or role' link to make a new line, repeat the name and put each role or function in its own box.<br/> If you’re not sure what to do with a complicated credit, check out the Examples button (upper right) or put something in the comments box (lower left)." }}  } ?
+      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => { :html => "true", :toggle => "tooltip", :original => {:title =>  "Copy one role or function from the credit above.<br/><br/>  If there is no role or function in the credit, leave this box blank. Examples of such credits would be 'PBS Home Video' or 'Tom Smith.' <br/><br/>  If there is more than one role or function in the credit, use the 'Add a new line for another name or role' link to make a new line, repeat the name and put each role or function in its own box.<br/><br/>  If you’re not sure what to do with a complicated credit, check out the Examples button (upper right) or put something in the comments box (lower left)." }}  } ?
     
     %li
       = form.label 'English translation of role/function'
       = form.text_field :role, :class => ""
-      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true",:toggle => "tooltip", :original => {:title =>   "Provide a literal English translation of the role or function in the credit if it’s not in English. <br/> For example, for “guioìn, Federico Garciìa Serrano,” record “script.” <br/> For “dirigida por Luis Estrada,” record “directed by.”"  }} } ?
+      %a{ :href => "#",  :class => "annon_tooltip", :rel => "tooltip",  :data => {:html => "true",:toggle => "tooltip", :original => {:title =>   "Provide a literal English translation of the role or function in the credit if it’s not in English. <br/><br/>  For example, for “guioìn, Federico Garciìa Serrano,” record “script.” <br/><br/>  For “dirigida por Luis Estrada,” record “directed by.”"  }} } ?
   - if ( controller.action_name == "edit"   )
     .comments
       = form.label 'Comments'
