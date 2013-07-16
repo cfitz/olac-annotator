@@ -25,12 +25,14 @@ jQuery ->
 	# This highlights the text in the insights field when it's being entered 
 	#
 	replaceInterestText = (klass) =>
-		newClass = klass.replace(".", "highlight-")		
+		newClass = klass.replace(".", "highlight-")
+		  		
 		$("#random_interest").unhighlight({ element: 'em', className: newClass })
 		$.each $(klass), (index, value) ->
 			texts = this.value.split " "
 			for text in texts
-			  $("#random_interest").highlight(RegExp.escape(text), { element: 'em', className: newClass })
+			  text_check = ".high-lit:contains('#{text}')"
+			  $("#random_interest").highlight(RegExp.escape(text), { element: 'em', className: newClass + " high-lit" }) unless $(text_check).length > 0
 	
 	$(".insights-fields").on( 'keyup', ".role-in-credit", ( -> 
 		replaceInterestText(".role-in-credit")

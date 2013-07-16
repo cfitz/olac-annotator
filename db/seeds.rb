@@ -76,12 +76,12 @@ rescue ArgumentError
   puts record_id
 end
 
-Gem::Package::TarReader.new(Zlib::GzipReader.open('doc/video_xml.gz')).each do |entry|
-  if [ "videos_english.xml", "videos_spanish.xml", "videos_german.xml"].include?(entry.full_name)
-    puts entry.full_name
-    index_xml_marc(entry)
-  end  
-end
+# Gem::Package::TarReader.new(Zlib::GzipReader.open('doc/video_xml.gz')).each do |entry|
+#   if [ "videos_english.xml", "videos_spanish.xml", "videos_german.xml"].include?(entry.full_name)
+#     puts entry.full_name
+#     index_xml_marc(entry)
+#   end  
+# end
 
 Dir.glob("doc/marc/*.mrc").each do |entry|
    index_marc(entry)
