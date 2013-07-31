@@ -17,5 +17,8 @@ class HomeController < ApplicationController
     render "about"
   end
   
+  def more
+    render "more"
+  end
   
 end

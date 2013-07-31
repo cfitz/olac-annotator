@@ -19,5 +19,5 @@ OlacNlp::Application.routes.draw do
   
   match 'credits' => "home#credits"
   match 'about' => "home#about"
-
+  match 'more' => "home#more"
 end

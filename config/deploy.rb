@@ -24,6 +24,8 @@ set :application, 'olac-annotator.org'
 set :stages, %w(production staging)
 set :default_stage, 'production'
 role :web, 'olac-annotator.org'
+role :app, 'olac-annotator.org'
+
 require 'capistrano/ext/multistage'
 
 role :db, application, :primary => true

@@ -58,6 +58,7 @@ jQuery ->
 	# Does the actual looping and checking for values
 	checkIfAllWordsArePresent = (credit, words, isEmptyOk = false ) =>
 		return true if words.length < 1 and isEmptyOk == true
+		return false if words.length < 1 and isEmptyOk == false
 		result = true
 		credit = " " + credit + " "
 		words = words.replace("...", "")
@@ -73,7 +74,6 @@ jQuery ->
 	# This checks that the name values are found in the Interest
 	$.validator.addMethod "nameValueInCredit", ( (value, element) ->
     interest = $("#random_interest").text()
-  #  words = value.split(" ")
     checkIfAllWordsArePresent(interest, value)
     ), "The text for the name should be copied exactly from the credit text above."
 	

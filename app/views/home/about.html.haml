@@ -4,39 +4,18 @@
     %p
       = link_to "The OLAC Movie & Video Credit Annotation Experiment", 'http://olac-annotator.herokuapp.com'
       is part of a larger project to make it easier to find film and video in libraries and archives. This project breaks current movie records down to pull out all the cast and crew information so that it may be re-ordered and manipulated. We also want to make explicit connections between cast and crew names and their roles or functions in the movie production. Adding these formal connections to movie records will allow us to provide a better user experience. For example, library patrons would be able to search just for directors or just for cast members or only for movies where Clint Eastwood is actually in the cast rather than all the movies that he is connected with. Libraries would have the flexibility to create more standardized and readable displays of production credits, such as you see at 
-      = link_to "IMDB,", "http://www.imdb.com/title/tt1205489/", { :class => "page-link", :target => "_blank"}
+      = link_to "IMDb,", "http://www.imdb.com/title/tt1205489/", { :class => "page-link", :target => "_blank"}
       rather than views like a 
       = link_to "typical library catalog.", "http://janus.uoregon.edu/record=b3958782", { :class => "page-link", :target => "_blank"}
     %p
       We therefore want to convert our existing records into more structured sets of data. Eventually, we intend to automate most of this conversion. For now, we need help from human volunteers, who can train our software to recognize the many ways names and roles have been listed in library records for movies.
-
-    %h2 Longer explanation with more library jargon
     %p
-      Inspired by the
-      = link_to "Functional Requirements for Bibliographic Records (FRBR) model", "http://www.ifla.org/publications/functional-requirements-for-bibliographic-records", { :class => "page-link", :target => "_blank"}
-      and the potential of 
-      = link_to "faceted navigation,", "http://en.wikipedia.org/wiki/Faceted_search", { :class => "page-link", :target => "_blank"}
-      we hope to build on 
-      = link_to "our prototype", "http://blazing-sunset-24.heroku.com/", { :class => "page-link", :target => "_blank"} 
-      to develop a movie-centric discovery interface for films and videos in libraries. We want to make it easier to find movies in libraries and also to make more interesting searches and displays possible. In order to do this without recataloging all the films and videos already in libraries, we plan to extract relevant data from existing catalog records and, where needed, modify it so that it is understandable not only to a human looking at the data, but also to a machine.
-    %p 
-      The OLAC Movie & Video Credit Annotation Experiment contributes to the development of tools to do the necessary data modification. Library catalog records currently include many free-text credits, such as 
-      %ol
-        %li directed by Clint Eastwood
-        %li screenplay by William Broyles Jr. and Paul Haggis 
-      They also contain standardized forms of names, such as
-      %ol
-        %li Eastwood, Clint, 1930-
+      = link_to "Longer explanation with more library jargon can be found here.", more_path, { :class => "page-link", :target => "_blank"}
     %p
-      A person looking at the record can tell that Clint Eastwood directed the movie. A person could also use the standardized form of his name to find other movies involving Clint Eastwood since those records will have the same standardized form. However, it isn't easy for a computer to put these two pieces of information together to conclude that "Eastwood, Clint, 1930-" is the director of the movie. 
-    %p
-      Natural language processing tries to bridge this gap by developing methods for a computer to analyze and work with naturally-occurring human language as opposed to structured input. We are using a natural language processor to help the computer connect up the names and roles in library records. However, the processor will work better if it is first fed a set of training data with the right answers. It would also be helpful to have a set of hand-annotated correct answers to use for evaluation purposes when experimenting with different approaches or algorithms. This is where you come in. By filling in the forms on this site with the correct answers, you will help us train the computer to do a better job of parsing the data in library records.
-    %p
-      If we are able to connect the roles and functions, it will enable us to create more flexible and useful displays and provide more targeted search options. Moving images are usually identified by title and year or title and director so if we can identify the director's name, it will make it easier to match library records with external information about the same moving image.
-    %p
-      More background information is available on the
+      More background information about the project is available on the
       = link_to "OLAC website", "http://www.olacinc.org/drupal/?q=node/27", { :class => "page-link", :target => "_blank"}
     %p
       If you're interested in contributing to this project, contact
       = mail_to  "kelleym@uoregon.edu","Kelley McGrath.", { :class => "page-link", :target => "_blank"}
-    
+   
+   
